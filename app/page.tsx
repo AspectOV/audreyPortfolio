@@ -1,6 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
+
+const audreyEmail = "Audrey@audreyhayesrealty.com";
 
 const sections = [
   {
@@ -9,6 +12,7 @@ const sections = [
     subtitle: "Realtor",
     body: "Helping families find the right place to call home with local insight, clear communication, and care from first showing to closing day.",
     button: "Schedule a Conversation",
+    buttonHref: `mailto:${audreyEmail}?subject=Real%20estate%20conversation`,
   },
   {
     id: "approach",
@@ -26,7 +30,9 @@ const sections = [
     id: "contact",
     title: "Let’s start your next move",
     subtitle: "Reach Audrey directly",
-    body: "Email: hello@audreyhayesrealty.com\nPhone: (555) 123-0182\nServing clients with honest advice and dependable follow-through.",
+    body: `Email: ${audreyEmail}\nServing clients with honest advice and dependable follow-through.`,
+    button: "Contact Audrey",
+    buttonHref: "/contact",
   },
 ];
 
@@ -56,6 +62,7 @@ export default function HomePage() {
       <header className="topbar">
         <span className="brand">Audrey Hayes Realty</span>
         <nav>
+          <Link href="/">Home</Link>
           {sections.map((section) => (
             <a
               key={section.id}
@@ -65,6 +72,8 @@ export default function HomePage() {
               {section.subtitle}
             </a>
           ))}
+          <Link href="/contact">Contact</Link>
+          <Link href="/privacy-policy">Privacy</Link>
         </nav>
       </header>
 
@@ -80,7 +89,15 @@ export default function HomePage() {
             <p className="kicker">{section.subtitle}</p>
             <h1>{section.title}</h1>
             <p className="body">{section.body}</p>
-            {section.button ? <button>{section.button}</button> : null}
+            {section.button && section.buttonHref?.startsWith("/") ? (
+              <Link className="button-link" href={section.buttonHref}>
+                {section.button}
+              </Link>
+            ) : section.button && section.buttonHref ? (
+              <a className="button-link" href={section.buttonHref}>
+                {section.button}
+              </a>
+            ) : null}
           </div>
         </section>
       ))}

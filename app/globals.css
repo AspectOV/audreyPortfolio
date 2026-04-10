@@ -39,6 +39,8 @@ main {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   font-size: 0.8rem;
+  color: #fff;
+  text-decoration: none;
 }
 
 .topbar nav {
@@ -92,7 +94,7 @@ main {
 }
 
 h1 {
-  font-size: clamp(2.2rem, 7vw, 5.4rem);
+  font-size: 5rem;
   margin: 0 0 1rem;
   line-height: 0.95;
   font-weight: 500;
@@ -100,12 +102,16 @@ h1 {
 
 .body {
   white-space: pre-line;
-  font-size: clamp(1rem, 2.4vw, 1.4rem);
+  font-size: 1.25rem;
   line-height: 1.6;
   max-width: 38rem;
 }
 
+.button-link,
 button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.75);
   background: transparent;
@@ -114,6 +120,18 @@ button {
   font-size: 0.9rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.button-link:hover,
+button:hover {
+  background: #fff;
+  color: #1e1a17;
+  transform: translateY(-2px);
 }
 
 .panel-1 {
@@ -134,6 +152,111 @@ button {
 .panel-4 {
   background: radial-gradient(circle at 75% 20%, rgba(255, 247, 218, 0.2), transparent 40%),
     linear-gradient(140deg, #3b3548 0%, #655e82 55%, #bbb4d3 100%);
+}
+
+.subpage {
+  min-height: 100vh;
+  background: #f2ede6;
+}
+
+.subpage .topbar {
+  background: rgba(21, 22, 20, 0.58);
+}
+
+.subpage-hero {
+  position: relative;
+  min-height: 72svh;
+  display: flex;
+  align-items: flex-end;
+  padding: 10rem 8rem 5rem;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+}
+
+.contact-hero {
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0.18)),
+    url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1800&q=80");
+}
+
+.privacy-hero {
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.16)),
+    url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80");
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.button-link.secondary {
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
+.detail-band,
+.policy-band {
+  background: #f2ede6;
+  color: #1e1a17;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.detail-copy {
+  border-top: 1px solid rgba(30, 26, 23, 0.28);
+  padding-top: 1.5rem;
+}
+
+.detail-copy h2,
+.policy-article h2 {
+  font-size: 2rem;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+  font-weight: 500;
+}
+
+.detail-copy p,
+.policy-article p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.kicker.dark {
+  color: #6f493e;
+}
+
+.contact-link,
+.policy-article a {
+  color: #315f5a;
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.policy-article {
+  max-width: 58rem;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.policy-article h2 {
+  margin-top: 3rem;
+}
+
+.updated {
+  color: #6f493e;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
 }
 
 @keyframes rise {
@@ -161,5 +284,32 @@ button {
 
   .panel {
     padding: 9rem 1.5rem 3rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .body {
+    font-size: 1.05rem;
+  }
+
+  .subpage-hero {
+    min-height: 76svh;
+    padding: 10rem 1.5rem 4rem;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+    padding: 4rem 1.5rem;
+  }
+
+  .policy-article {
+    padding: 4rem 1.5rem;
+  }
+
+  .detail-copy h2,
+  .policy-article h2 {
+    font-size: 1.75rem;
   }
 }

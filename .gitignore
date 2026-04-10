@@ -4,3 +4,4 @@ node_modules/
 dist/
 .env*.local
 cloudflare-env.d.ts
+.next-dev*.log
